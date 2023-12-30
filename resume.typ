@@ -1,13 +1,30 @@
-#align(center,
-  block[
-    *Jake Ryan* \
-    123-456-7890 $\|$ #link("mailto:jake@su.edu")[jake\@su.edu] $\|$ #link("https://linkedin.com/in/jake")[linkedin.com/in/jake] $\|$ #link("https://github.com/jake")[github.com/jake]
-  ]
+#set page(
+  paper: "us-letter",
+  margin: (x: 0.5in, y: 0.5in)
 )
 
-#let heading(text) = {
+#set text(
+  size: 11pt,
+    font: "New Computer Modern",
+)
+
+#set list(indent: 1em)
+#show list: set text(size: 0.92em)
+
+#show link: underline
+#show link: set underline(offset: 3pt)
+
+
+#let name(name) = {
+  set text(size: 2.25em)
+  [*#name*]
+}
+
+#let resume_heading(txt) = {
+  show heading: set text(size: 0.92em, weight: "regular")
+
   block[
-    = #text
+    = #smallcaps(txt)
     #v(-4pt)
     #line(length: 100%, stroke: 1pt + black)
   ]
@@ -19,8 +36,8 @@
   location: "Foo, BA", 
   date: "Aug. 1600 - May 1750"
 ) = {
-  set block(above: 0.7em, below: 0.7em)
-  grid(
+  set block(above: 0.7em, below: 1em)
+  pad(left: 1em, right: 0.5em, grid(
     columns: (3fr, 1fr),
     align(left)[
       *#name* \
@@ -30,7 +47,7 @@
       #location \
       _#date _
     ]
-  )
+  ))
 }
 
 #let exp_item(
@@ -40,19 +57,21 @@
   location: "Foo, BA",
   ..points
 ) = {
-    set block(above: 0.7em, below: 0.7em)
-    grid(
-      columns: (3fr, 1fr),
-      align(left)[
-        *#role* \
-        _#name _
-      ],
-      align(right)[
-        #date \
-        _#location _
-      ]
-    )
-    list(..points)
+    set block(above: 0.7em, below: 1em)
+    pad(left: 1em, right: 0.5em, box[
+      #grid(
+        columns: (3fr, 1fr),
+        align(left)[
+          *#role* \
+          _#name _
+        ],
+        align(right)[
+          #date \
+          _#location _
+        ]
+      )
+      #list(..points)
+    ])
 }
 
 #let project_item(
@@ -61,21 +80,32 @@
   date: "May 1234 - June 4321",
   ..points
 ) = {
-  set block(above: 0.7em, below: 0.7em)
-  [*#name* | _#skills _
-   #h(1fr) #date]
-  list(..points)
+  set block(above: 0.7em, below: 1em)
+  pad(left: 1em, right: 0.5em, box[
+    *#name* | _#skills _ #h(1fr) #date
+    #list(..points)
+  ])
 }
 
 #let skill_item(
   category: "Skills",
   skills: "Balling, Yoga, Valorant",
 ) = {
-  set block(above: 0.7em, below: 0.7em)
-  block[*#category*: #skills]
+  set block(above: 0.7em)
+  set text(size: 0.91em)
+  pad(left: 1em, right: 0.5em, block[*#category*: #skills])
 }
 
-#heading[Education]
+#align(center,
+  block[
+    #name("Jake Ryan") \
+    123-456-7890 $\|$ #link("mailto:jake@su.edu")[jake\@su.edu] $\|$ #link("https://linkedin.com/in/jake")[linkedin.com/in/jake] $\|$ #link("https://github.com/jake")[github.com/jake]
+  ]
+)
+#v(5pt)
+
+
+#resume_heading[Education]
 #edu_item(
   name: "Southwestern University",
   degree: "Bachelor of Arts in Computer Science, Minor in Business",
@@ -89,7 +119,7 @@
   date: "Aug. 2014 - May 2018"
 )
 
-#heading[Experience]
+#resume_heading[Experience]
 #exp_item(
   role: "Undergraduate Research Assistant",
   name: "Texas A&M University",
@@ -121,7 +151,7 @@
   [Presented virtually to the World Conference on Computational Intelligence]
 )
 
-#heading("Projects")
+#resume_heading("Projects")
 #project_item(
   name: "Gitlytics",
   skills: "Python, Flask, React, PostgreSQL, Docker",
@@ -141,7 +171,7 @@
   [Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin]
 )
 
-#heading("Technical Skills")
+#resume_heading("Technical Skills")
 #skill_item(
   category: "Languages",
   skills: "Java, Python, C/C++, SQL (Postgres), JavaScript, HTML/CSS, R"
