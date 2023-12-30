@@ -1,6 +1,6 @@
-# NNJ Resume
+# NNJR
 
-NNJ Resume: **N**NJ is **N**ot **J**ake's Resume. However, it is similar and is
+NNJR: **N**NJR is **N**ot **J**ake's **R**esume. However, it is similar and is
 written in `Typst`! 
 
 ![example.png](./example.png)
@@ -12,6 +12,8 @@ written in `Typst`!
 Upload `resume.typ` to your Typst project. Change what you want and voila!
 
 Shared project demo [here](https://typst.app/project/rdCXm00mYQiDPpLtSCK4xs)
+
+https://typst.app/project/rdCXm00mYQiDPpLtSCK4xs
 
 ### Typst CLI
 
