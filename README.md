@@ -9,7 +9,7 @@ written in `Typst`!
 
 ### [Typst.app](https://typst.app)
 
-Upload `resume.typ` to your Typst project. Change what you want and voila!
+Upload all `*.typ` files to your Typst project. Change what you want and voila!
 
 Shared project demo [here](https://typst.app/project/rdCXm00mYQiDPpLtSCK4xs)
 
