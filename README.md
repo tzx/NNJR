@@ -1,6 +1,6 @@
 # NNJR
 
-NNJR: **N**NJR is **N**ot **J**ake's **R**esume. However, it is similar and is
+NNJR: **N**NJR is **N**ot [**J**ake's **R**esume](https://github.com/jakegut/resume). However, it is similar and is
 written in `Typst`! 
 
 ![example.png](./example.png)
